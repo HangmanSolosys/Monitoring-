@@ -3,7 +3,6 @@ import os
 import subprocess
 import time
 
-var1 = "waaazzaaap"
 
 def my_function():
     try:
