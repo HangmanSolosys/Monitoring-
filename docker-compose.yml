@@ -30,11 +30,14 @@ services:
     container_name: node-exporter-container
     restart: unless-stopped
     ports:
-    - "9100:9100"
+      - "9100:9100"
     command:
       - '--path.procfs=/host/proc'
       - '--path.sysfs=/host/sys'
-      - '--path.rootfs=/host'
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/host:ro
 
 volumes:
   grafana-storage:
